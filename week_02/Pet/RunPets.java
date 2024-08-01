@@ -1,26 +1,16 @@
-/** Program RunPets.java will run classes Pet and Dog...*/
+/** Program RunPets.java will run classes Pet and Dog... */
 
-public class RunPets{
-  public static void main(String[] args){
-    //Create a Pet
-    Pet pet = new Pet();
-    //test methods
-    pet.speak("Hi");
-    //Create a Dog
-    Dog dog4 = new Dog();
-    Dog dog1 = new Dog("Chama", 9);
-    //display
-    System.out.println(dog1);
-    //set breed
-    dog1.setBreed("german shepherd");
-    //display again
-    System.out.println(dog1);
-    dog1.speak("Woof");
-    //create Dog as a Pet
-    Pet dog3 = new Dog("Tez", 12, "buldog");
-    //display
-    System.out.println(dog3);
-    dog3.speak("Woof,woof");
-    
-  }
+public class RunPets {
+	public static void main(String[] args) {
+		Pet dog = new Dog("Benjamin", 3, "Husky");
+		Pet cat = new Cat("Smudge", 6, "White");
+
+		System.out.println(dog.toString());
+		dog.eat("Food");
+		dog.speak("Woof");
+
+		System.out.println(cat.toString());
+		cat.eat("Food");
+		cat.speak("Meow");
+	}
 }

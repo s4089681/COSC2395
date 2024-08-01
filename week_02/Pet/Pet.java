@@ -1,7 +1,6 @@
 /**Class Pet which will be superclass for Dog and Cat
   *program Pet.java, folder Pet
   */
-
 public class Pet{
   /*instance variables
    *with protected access to be inherited by subclasses
