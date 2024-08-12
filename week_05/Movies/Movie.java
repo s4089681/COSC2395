@@ -37,6 +37,5 @@ public abstract class Movie implements Comparable<Movie> {
 		} else { // Else return 1
 			return 1;
 		}
-
 	}
 }
