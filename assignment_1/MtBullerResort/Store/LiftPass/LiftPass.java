@@ -1,4 +1,6 @@
-package MtBullerResort.Store;
+package MtBullerResort.Store.LiftPass;
+
+import MtBullerResort.Store.Purchasable;
 
 public class LiftPass implements Purchasable {
 	private int days;

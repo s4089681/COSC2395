@@ -2,14 +2,10 @@ package MtBullerResort.Customer;
 
 import java.util.ArrayList;
 
-import MtBullerResort.Store.Price;
-
 public class Customer {
 	private Level level;
 	private String name;
 	private int id;
-
-	private ArrayList<Price> ;
 
 	static int nextId = 1;
 

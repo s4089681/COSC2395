@@ -1,4 +1,4 @@
-package MtBullerResort.store.LiftPass;
+package MtBullerResort.Store.LiftPass;
 
 public enum LiftPassType {
 
