@@ -68,50 +68,25 @@ public class Accomodation implements Purchasable, Serializable {
 	public String toString() {
 		return "id = " + this.id + " Type = " + this.type + " price = " + this.nightCost;
 	}
-	//
-	// public static void writeAccomodation() {
-	// try {
-	// FileOutputStream fos = new FileOutputStream("accomodation.dat");
-	// ObjectOutputStream oos = new ObjectOutputStream(fos);
-	// oos.writeObject(new Accomodation(12.0, AccomodationType.HOTEL));
-	// oos.close();
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	//
-	// }
-
-	// public static void loadAccomodation() {
-	// try {
-	// FileInputStream fis = new FileInputStream("accomodation.dat");
-	// ObjectInputStream ois = new ObjectInputStream(fis);
-	// Object obj = ois.readObject();
-	// ois.close();
-	// Accomodation a = (Accomodation) obj;
-	// System.out.println(a.toString());
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
 
 	// Loads all files in directory ./Accomodations/ and attempts to read them into
 	// an ArrayList of accomodation
 	public static ArrayList<Accomodation> loadAccomodation() {
-		ArrayList<Accomodation> a = new ArrayList<>();
+		ArrayList<Accomodation> accomodationList = new ArrayList<>();
 		File[] arr = new File("./Accomodations/").listFiles();
 		for (File file : arr) {
 			try {
 				FileInputStream fis = new FileInputStream(file);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 
-				a.add((Accomodation) ois.readObject());
+				accomodationList.add((Accomodation) ois.readObject());
 
 				ois.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return a;
+		return accomodationList;
 	}
 
 	// Takes an ArrayList of accomodation and saves to individual files based off
