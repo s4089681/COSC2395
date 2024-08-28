@@ -1,12 +1,7 @@
 package MtBullerResort.Store.Accomodation;
 
 import MtBullerResort.Store.Purchasable;
-
 import java.io.*;
-import java.net.URI;
-import java.nio.file.Paths;
-import java.util.List;
-
 import java.util.ArrayList;
 
 public class Accomodation implements Purchasable, Serializable {
@@ -54,11 +49,6 @@ public class Accomodation implements Purchasable, Serializable {
 	public void extendStay(int nights) {
 		this.nights += nights;
 	}
-	//
-	// pubic ArrayList<Accomodation> loadAccomodation() {
-	// String[] files = new File("./Accomodations/").list();
-	//
-	// }
 
 	public int getId() {
 		return this.id;
