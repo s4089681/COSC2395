@@ -1,7 +1,6 @@
 package MtBullerResort.Store.TravelPackage;
 
 import MtBullerResort.Customer.Level;
-import MtBullerResort.Store.Saveable;
 import MtBullerResort.Store.Lesson.Lesson;
 import MtBullerResort.Store.LiftPass.LiftPass;
 import MtBullerResort.Store.Accomodation.Accomodation;
@@ -78,7 +77,7 @@ public class TravelPackage {
 				FileOutputStream fos = new FileOutputStream(directory);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-				System.out.println("Writing file to: " + d);
+				System.out.println("Writing file to: " + directory);
 				oos.writeObject(p);
 
 				// Close Streas after use
