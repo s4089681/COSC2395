@@ -7,7 +7,7 @@ public class Customer {
 	private String name;
 	private int id;
 
-	static int nextId = 1;
+	public static int nextId = 0;
 
 	public Customer() {
 		this.id = nextId;
@@ -22,5 +22,14 @@ public class Customer {
 	public Customer(String name, Level level) {
 		this(name);
 		this.level = level;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer ID: " + this.id + " | name: " + this.name + " level: " + this.level;
 	}
 }
