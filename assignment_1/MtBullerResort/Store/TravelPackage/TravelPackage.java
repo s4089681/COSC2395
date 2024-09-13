@@ -6,6 +6,7 @@ import MtBullerResort.Store.LiftPass.LiftPass;
 import MtBullerResort.Store.Accomodation.Accomodation;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.io.*;
 
 public class TravelPackage {
@@ -16,6 +17,11 @@ public class TravelPackage {
 	private Lesson lesson;
 	private LiftPass liftPass;
 	private int id;
+
+	private Date start;
+	private Date end;
+	private int duration;
+
 	private static int nextId = 0;
 
 	// A package wont always have a lesson as a package may not contain a lesson or
@@ -24,26 +30,32 @@ public class TravelPackage {
 	// Therefore we can overload constructors to allow for variations of input,
 	// whilst ensuring there is accomodation
 
-	public TravelPackage(Level level, Accomodation accomodation) {
+	public TravelPackage(Level level, Accomodation accomodation, Date start, Date end, int duration) {
 		this.level = level;
 		this.accomodation = accomodation;
 		this.id = nextId;
 		nextId++;
+
+		this.start = start;
+		this.end = end;
+		this.duration = duration;
 	}
 
-	public TravelPackage(Level level, Accomodation accomodation, Lesson lesson) {
-		this(level, accomodation);
+	public TravelPackage(Level level, Accomodation accomodation, Lesson lesson, Date start, Date end, int duration) {
+		this(level, accomodation, start, end, duration);
 		this.lesson = lesson;
 	}
 
-	public TravelPackage(Level level, Accomodation accomodation, LiftPass liftPass) {
-		this(level, accomodation);
+	public TravelPackage(Level level, Accomodation accomodation, LiftPass liftPass, Date start, Date end, int duration) {
+		this(level, accomodation, start, end, duration);
 		this.liftPass = liftPass;
 	}
 
-	public TravelPackage(Level level, Accomodation accomodation, LiftPass liftPass, Lesson lesson) {
-		this(level, accomodation, liftPass);
+	public TravelPackage(Level level, Accomodation accomodation, LiftPass liftPass, Lesson lesson, Date start, Date end,
+			int duration) {
+		this(level, accomodation, start, end, duration);
 		this.lesson = lesson;
+		this.liftPass = liftPass;
 	}
 
 	public static ArrayList<TravelPackage> loadTravelPackage() {

@@ -6,6 +6,9 @@ public class Customer {
 	private Level level;
 	private String name;
 	private int id;
+	private String phone;
+	private String email;
+	private String age;
 
 	public static int nextId = 0;
 
@@ -14,14 +17,12 @@ public class Customer {
 		nextId++;
 	}
 
-	public Customer(String name) {
-		this();
+	public Customer(String name, Level level, String phone, String email, String age) {
 		this.name = name;
-	}
-
-	public Customer(String name, Level level) {
-		this(name);
 		this.level = level;
+		this.phone = phone;
+		this.email = email;
+		this.age = age;
 	}
 
 	public int getId() {
@@ -30,6 +31,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer ID: " + this.id + " | name: " + this.name + " level: " + this.level;
+		return "ID: " + this.id + " | name: " + this.name + " age: " + this.age + " level: " + this.level
+				+ " phone: " + this.phone + " email: " + this.email;
 	}
 }

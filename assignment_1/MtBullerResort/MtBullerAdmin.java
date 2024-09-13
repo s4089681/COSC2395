@@ -10,14 +10,9 @@ public class MtBullerAdmin {
 
 	public static void main(String args[]) {
 		mbr = new MtBullerResort();
-		mbr.addCustomer("Test", Level.BEGINNER);
-		mbr.addCustomer("Test", Level.BEGINNER);
-		mbr.addCustomer("Test", Level.BEGINNER);
-		mbr.addCustomer("Test", Level.BEGINNER);
 
-		mbr.listCustomers();
+		mbr.menu();
 
-		
 	}
 
 }

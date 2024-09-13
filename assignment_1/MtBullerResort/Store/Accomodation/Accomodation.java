@@ -1,5 +1,9 @@
 package MtBullerResort.Store.Accomodation;
 
+// Accomodation must have a type, price, ID and wether it is associated with a package or not
+//
+// Must have an initial list of Min 10 differant accomodations
+
 import MtBullerResort.Store.Purchasable;
 import java.io.*;
 import java.util.ArrayList;
@@ -7,12 +11,17 @@ import java.util.ArrayList;
 public class Accomodation implements Purchasable, Serializable {
 
 	private static final long serialVersionUID = 42L; // Implemented as part of serializable interface
+	private static int nexId = 0; // Static integer to keep track of next available accomodation ID
+
 	private int nights = 0; // How many nights will the acomodation be?
 	private double nightCost; // How much is the accomodation per night?
 	private int id; // Integer id used to identify instance of accomodation
-	private static int nexId = 0; // Static integer to keep track of next available accomodation ID
 	private String location; // Location of the accomodation
 	private AccomodationType type; // Used to declare the type of accomodation the instance is
+
+	private boolean available = true; // A boolean which says if the instance of accomodation is apart of a
+																		// Pacakge or not, defaults to false
+	private int associatedPackageID; // If an accomodation IS apart of a package, it must be flagged and associated
 
 	// Nights count set to 0 by default, if the nights of the accomodation is
 	// updated, return appropriate cost of days * price
@@ -40,6 +49,11 @@ public class Accomodation implements Purchasable, Serializable {
 		nexId++;
 	}
 
+	public Accomodation(double nightCost, AccomodationType type, String location) {
+		this(nightCost, type);
+		this.location = location;
+	}
+
 	// Allows customer to set x number of nights for stay
 	public void setStay(int nights) {
 		this.nights = nights;
@@ -56,20 +70,25 @@ public class Accomodation implements Purchasable, Serializable {
 
 	@Override
 	public String toString() {
-		return "id = " + this.id + " Type = " + this.type + " price = " + this.nightCost;
+		return "ID: " + this.id + " | type: " + this.type + " price per night: " + this.nightCost + " location: "
+				+ this.location + " available: " + this.available;
 	}
 
 	// Loads all files in directory ./Accomodations/ and attempts to read them into
 	// an ArrayList of accomodation
 	public static ArrayList<Accomodation> loadAccomodation() {
 		ArrayList<Accomodation> accomodationList = new ArrayList<>();
-		File[] arr = new File("./Accomodations/").listFiles();
+		File[] arr = new File("./MtBullerResort/Store/Accomodation/Accomodations/").listFiles();
+
+		System.out.println();
 		for (File file : arr) {
 			try {
 				FileInputStream fis = new FileInputStream(file);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 
 				accomodationList.add((Accomodation) ois.readObject());
+
+				System.out.println("Loading file: " + file.getPath());
 
 				ois.close();
 			} catch (Exception e) {
@@ -98,5 +117,13 @@ public class Accomodation implements Purchasable, Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public boolean available() {
+		return this.available;
+	}
+
+	public void available(boolean Available) {
+		this.available = Available;
 	}
 }
